@@ -1,35 +1,32 @@
-#ÅäÖÃÊı¾İÔ´
+
 spring:
   datasource:
     name: rmd
     type: com.alibaba.druid.pool.DruidDataSource
-    #druidÏà¹ØÅäÖÃ
+    #æ•°æ®åº“è¿æ¥
     druid:
-      #¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters
       filters: stat
       driver-class-name: com.mysql.jdbc.Driver
-      #»ù±¾ÊôĞÔ
       url: jdbc:mysql://127.0.0.1:3306/rmd?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
       username: root
       password: root
-      #ÅäÖÃ³õÊ¼»¯´óĞ¡/×îĞ¡/×î´ó
       initial-size: 1
       min-idle: 1
       max-active: 20
-      #»ñÈ¡Á¬½ÓµÈ´ı³¬Ê±Ê±¼ä
       max-wait: 60000
-      #¼ä¸ô¶à¾Ã½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó
       time-between-eviction-runs-millis: 60000
-      #Ò»¸öÁ¬½ÓÔÚ³ØÖĞ×îĞ¡Éú´æµÄÊ±¼ä
       min-evictable-idle-time-millis: 300000
       validation-query: SELECT 'x'
       test-while-idle: true
       test-on-borrow: false
       test-on-return: false
-      #´ò¿ªPSCache£¬²¢Ö¸¶¨Ã¿¸öÁ¬½ÓÉÏPSCacheµÄ´óĞ¡¡£oracleÉèÎªtrue£¬mysqlÉèÎªfalse¡£·Ö¿â·Ö±í½Ï¶àÍÆ¼öÉèÖÃÎªfalse
       pool-prepared-statements: false
       max-pool-prepared-statement-per-connection-size: 20
-#Ö¸¶¨mybatisÓ³ÉäÎÄ¼şµÄµØÖ·
+
+      #æ—¥å¿—
+    profiles:
+      active: dev
+
 mybatis:
-  mapper-locations: classpath:mapper/*.xml  #×¢Òâ£ºÒ»¶¨Òª¶ÔÓ¦mapperÓ³ÉäxmlÎÄ¼şµÄËùÔÚÂ·¾¶
-  type-aliases-package: com.example.demo.model  # ×¢Òâ£º¶ÔÓ¦ÊµÌåÀàµÄÂ·¾¶
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.model
